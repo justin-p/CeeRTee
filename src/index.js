@@ -1,35 +1,44 @@
-/**
- * For audioMotion-analyzer documentation and
- * mode demos, visit https://audiomotion.dev
- */
 import "./styles.css";
 
 import AudioMotionAnalyzer from "audiomotion-analyzer";
 import Pizzicato from "pizzicato";
 
-const el = document.getElementById("container");
-
 // use the AudioContext provided by Pizzicato
 // when creating the audioMotion-analyzer object
-const audioMotion = new AudioMotionAnalyzer(el, {
-  audioCtx: Pizzicato.context
-});
-
-const soundPath = "assets/test.wav";
+const audioMotion = new AudioMotionAnalyzer(
+  document.getElementById("container"),
+  {
+    audioCtx: Pizzicato.context,
+    alphaBars: 1,
+    barSpace: 0.2,
+    mode: 2,
+    outlineBars: 1,
+    mirror: 1,
+    gradient: "rainbow",
+    showScaleX: 0,
+    ShowScaleY: 0,
+    showPeaks: 1,
+    ledBars: true,
+    smoothing: 0.3
+  }
+);
 
 // use the getInputNode() method in your sound object
 // to obtain the audio node to connect to audioMotion
-const mySound = new Pizzicato.Sound(soundPath, () => {
-  audioMotion.connectInput(mySound.getInputNode());
+const voice = new Pizzicato.Sound({ source: "input" }, () => {
+  audioMotion.connectInput(voice.getInputNode());
 });
+
+audioMotion.setFreqRange(50, 800)
 
 // effect
-var ringModulator = new Pizzicato.Effects.RingModulator({
-  speed: 30,
-  distortion: 1,
-  mix: 0.5
-});
+//var ringModulator = new Pizzicato.Effects.RingModulator({
+//  speed: 166,
+//  distortion: 21,
+//  mix: 1
+//});
 
-mySound.addEffect(ringModulator);
+// voice.addEffect(ringModulator);
 
-document.getElementById("play").addEventListener("click", () => mySound.play());
+document.getElementById("play").addEventListener("click", () => voice.play());
+document.getElementById("stop").addEventListener("click", () => voice.stop());
