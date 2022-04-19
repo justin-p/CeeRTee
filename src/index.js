@@ -1,3 +1,7 @@
+/**
+ * For audioMotion-analyzer documentation and
+ * mode demos, visit https://audiomotion.dev
+ */
 import "./styles.css";
 
 import AudioMotionAnalyzer from "audiomotion-analyzer";
@@ -14,6 +18,9 @@ const audioMotion = new AudioMotionAnalyzer(
     mode: 2,
     outlineBars: 1,
     mirror: 1,
+    reflexRatio: 0.5,
+    reflexAlpha: 1,
+    reflexBright: 1,    
     gradient: "rainbow",
     showScaleX: 0,
     ShowScaleY: 0,
@@ -29,7 +36,7 @@ const voice = new Pizzicato.Sound({ source: "input" }, () => {
   audioMotion.connectInput(voice.getInputNode());
 });
 
-audioMotion.setFreqRange(50, 800)
+audioMotion.setFreqRange(50, 800);
 
 // effect
 //var ringModulator = new Pizzicato.Effects.RingModulator({
