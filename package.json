@@ -8,7 +8,7 @@
     "build": "parcel build index.html"
   },
   "dependencies": {
-    "audiomotion-analyzer": "3.0.0",
+    "audiomotion-analyzer": "3.6.0",
     "pizzicato": "0.6.4"
   },
   "devDependencies": {
