@@ -1,7 +1,3 @@
-/**
- * For audioMotion-analyzer documentation and
- * mode demos, visit https://audiomotion.dev
- */
 import "./styles.css";
 
 import AudioMotionAnalyzer from "audiomotion-analyzer";
@@ -20,7 +16,7 @@ const audioMotion = new AudioMotionAnalyzer(
     mirror: 1,
     reflexRatio: 0.5,
     reflexAlpha: 1,
-    reflexBright: 1,    
+    reflexBright: 1,
     gradient: "rainbow",
     showScaleX: 0,
     ShowScaleY: 0,
