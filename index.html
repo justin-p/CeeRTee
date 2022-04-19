@@ -1,15 +1,26 @@
 <!DOCTYPE html>
 <html>
-  <head>
+
+<head>
     <title>audioMotion + Pizzicato</title>
     <meta charset="UTF-8" />
-  </head>
+    <script src="src/index.js" type="module"></script>
+</head>
 
-  <body>
-    <div id="container"></div>
-
+<body>
+    <div class="center">
+        <video id="eye" autoplay="autoplay" muted Loop>
+          <source src="assets/eye.mp4">
+          scrub
+        </video>
+        <video id="eye" autoplay="autoplay" muted Loop>
+          <source src="assets/eye.mp4">
+          scrub
+        </video>
+        <div id="mouth"></div>
+    </div>
     <button id="play">Start Mic</button>
     <button id="stop">Stop Mic</button>
-    <script src="src/index.js" type="module"></script>
-  </body>
+</body>
+
 </html>
